@@ -1,0 +1,15 @@
+{
+  "name": "@agnx-sub/twenty",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "peerDependencies": {
+    "@agnx-lab/app-sdk": "*"
+  },
+  "peerDependenciesMeta": {
+    "@agnx-lab/app-sdk": {
+      "optional": true
+    }
+  }
+}

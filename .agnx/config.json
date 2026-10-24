@@ -1,0 +1,10 @@
+{
+  "appId": "twenty",
+  "installState": "installed",
+  "launchMode": "packaged",
+  "source": {
+    "kind": "github",
+    "url": "https://github.com/twentyhq/twenty"
+  },
+  "updatedAt": "2026-10-22T22:50:00.000Z"
+}

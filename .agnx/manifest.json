@@ -1,0 +1,52 @@
+{
+  "id": "twenty",
+  "name": "Twenty",
+  "version": "0.2.1",
+  "description": "Agnx 外置子应用：twentyhq/twenty（开源 CRM，AGPL-3.0）。桌面 Tab 已完整跑通：8132 反代 → 8136 Vite → 8137 NestJS，登录进入 CRM 主界面，599 条公司数据真实渲染（截图取证）。演示账号 tim@apple.dev / tim@apple.dev。网页端（proxied-iframe）未实测，预期会踩 daemon guest-proxy 的 Host/Origin 改写问题。",
+  "engines": {
+    "agnx": ">=1.0.0"
+  },
+  "main": "./dist/index.js",
+  "icon": "./.agnx/assets/icon.png",
+  "iconDark": "./.agnx/assets/icon-dark.png",
+  "platforms": {
+    "desktop": "supported",
+    "web": "partial",
+    "mobile": "unsupported"
+  },
+  "guest": {
+    "kind": "web",
+    "auth": "none",
+    "capabilities": [
+      "websocket",
+      "cookies"
+    ],
+    "preferStrategy": "proxied-iframe"
+  },
+  "sidecar": {
+    "supervised": true,
+    "ensureTool": ".agnx/tools/ensure-twenty.mjs",
+    "stateFile": "twenty.json",
+    "defaultPort": 8132,
+    "extraPorts": [
+      8136,
+      8137
+    ],
+    "lifecycle": "lazy",
+    "label": "Twenty CRM 服务"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "id": "twenty.open",
+        "title": "Twenty CRM"
+      }
+    ],
+    "panels": [
+      {
+        "id": "twenty.main",
+        "title": "Twenty"
+      }
+    ]
+  }
+}
